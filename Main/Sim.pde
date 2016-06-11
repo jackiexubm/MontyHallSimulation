@@ -4,9 +4,8 @@ void runSimulator() {
     choosingStage ++;
     System.out.println(prizeDoor);
   }
-  
-  if(choosingStage == 2){
-    
+
+  if (choosingStage == 2) {
   }
 }
 
@@ -24,18 +23,29 @@ void drawThings() {
     image(dollar, 390, 250);
     image(money, 670, 250);
   }
-  
+
   // draw pointUp to the chosen door 
-  if(choosingStage == 2){
-    if(chosenDoor == 0){
-      image(pointUp,130,600);
-      text("Your Choice",110,680);
-    }else if(chosenDoor == 1){
-      image(pointUp,410,600);
-      text("Your Choice",390,680);
-    }else if(chosenDoor == 2){
-      image(pointUp,690,600);
-      text("Your Choice",670,680);
+  if (choosingStage == 2) {
+    if (chosenDoor == 0) {
+      image(pointUp, 130, 600);
+      text("Your Choice", 90, 680);
+      text("STAY...", 110, 30);
+    } else if (chosenDoor == 1) {
+      image(pointUp, 410, 600);
+      text("Your Choice", 370, 680);
+      text("STAY...", 390, 30);
+    } else if (chosenDoor == 2) {
+      image(pointUp, 690, 600);
+      text("Your Choice", 650, 680);
+      text("STAY...", 670, 30);
+    }
+    System.out.println(otherDoor());
+    if (otherDoor() == 0) {
+      text("OR SWITCH...", 90, 30);
+    } else if (otherDoor() == 1) {
+      text("OR SWITCH...", 390, 30);
+    } else if (otherDoor() == 2) {
+      text("OR SWITCH...", 650, 30);
     }
   }
 }

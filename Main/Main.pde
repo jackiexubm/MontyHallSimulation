@@ -11,10 +11,12 @@ int choosingStage;
 int prizeDoor;
 int chosenDoor;
 int hintDoor;
+int otherDoor(){ return 3 - chosenDoor - hintDoor;}
 
 void setup() {
   size(1000, 700);
   fill(0);
+  textSize(20);
   closedDoor = loadImage("closedDoor.png");
   openDoor = loadImage("openDoor.png");
   money = loadImage("money.png");
