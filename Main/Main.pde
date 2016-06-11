@@ -10,6 +10,7 @@ PImage pointUp;
 int choosingStage;
 int prizeDoor;
 int chosenDoor;
+int hintDoor;
 
 void setup() {
   size(1000, 700);
@@ -34,7 +35,7 @@ void setup() {
 }
 
 void draw() {
-  frame.setTitle(str(frameRate))
+  frame.setTitle(str(frameRate));
   background(256, 256, 256);
   runSimulator();
   drawThings();

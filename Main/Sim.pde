@@ -6,7 +6,7 @@ void runSimulator() {
   }
   
   if(choosingStage == 2){
-    System.out.println(10);
+    
   }
 }
 
