@@ -28,10 +28,16 @@ void setupAutoRun() {
     ;
 
   cp5.addSlider("autoRunDelay")
-    .setRange(0, 500)
+    .setRange(0, 1000)
     .setValue(0)
     .setPosition(960, 242)
     ;
+    
+  cp5.addToggle("doNotAnimateToggle")
+  .setPosition(1045,270)
+  .setSize(13,13)
+  .setValue(true)
+  ;
 }
 
 void door0() {

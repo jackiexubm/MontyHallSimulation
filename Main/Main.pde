@@ -49,9 +49,8 @@ void draw() {
   surface.setTitle(str((int)frameRate));
   background(256, 256, 256);
   runSimulator();
-  drawThings();
   gameStats();
   if (cp5.get(Toggle.class, "autoRunToggle").getBooleanValue()) {
-    autoRun((int) cp5.getController("autoRunDelay").getValue());
+    autoRun((int) cp5.getController("autoRunDelay").getValue(), cp5.get(Toggle.class, "doNotAnimateToggle").getBooleanValue());
   }
 }

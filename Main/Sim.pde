@@ -3,9 +3,6 @@ void runSimulator() {
     prizeDoor = (int) (Math.random() * 3);
     choosingStage ++;
   }
-}
-
-void drawThings() {
   if (prizeDoor == 0) {
     image(money, 110, 250);
     image(dollar, 390, 250);
@@ -56,7 +53,10 @@ void drawThings() {
   text("Auto run delay:", 855, 250);
   textSize(10);
   text("(slide left and right to change value)", 855, 260);
+  textSize(11);
+  text("Animate toggle(slows things down)", 855, 280);
 }
+
 
 
 void gameStats() {
@@ -69,13 +69,13 @@ void gameStats() {
   text("Games stayed and won: " + gamesStayedAndWon, 865, 85);
   text("Percent won on stay: ", 887, 105);
   if (gamesStayed > 0) {
-    text((int)((double) gamesStayedAndWon / (double) gamesStayed * 100), 1042, 105);
+    text("" + (int)((double) gamesStayedAndWon / (double) gamesStayed * 100) + "%", 1042, 105);
   }
   text("Games switched: " + gamesSwitched, 915, 125);
   text("Games switched and won: " + gamesSwitchedAndWon, 849, 145);
   text("Percent won on switch: ", 870, 165);
   if (gamesSwitched > 0) {
-    text((int)((double) gamesSwitchedAndWon / (double) gamesSwitched * 100), 1042, 165);
+    text("" + (int)((double) gamesSwitchedAndWon / (double) gamesSwitched * 100) + "%", 1042, 165);
   }
 }
 
@@ -87,7 +87,7 @@ void restartGame() {
 }
 
 
-void autoRun(int delayTime) {
+void autoRun(int delayTime, boolean doNotAnimate) {
   delay(delayTime);
   if (choosingStage == 1) {
     System.out.println(1);
@@ -99,7 +99,9 @@ void autoRun(int delayTime) {
     } else {
       door2();
     }
-    return;
+    if (doNotAnimate) {
+      return;
+    }
   }
   if (choosingStage == 2) {
     System.out.println(2);
@@ -115,10 +117,14 @@ void autoRun(int delayTime) {
     } else {
       door2();
     }
-    return;
+    if (doNotAnimate) {
+      return;
+    }
   }
   if (choosingStage == 3) {
     door1();
-    return;
+    if (doNotAnimate) {
+      return;
+    }
   }
 }
