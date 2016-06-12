@@ -2,7 +2,6 @@ void runSimulator() {
   if (choosingStage == 0) {
     prizeDoor = (int) (Math.random() * 3);
     choosingStage ++;
-    System.out.println(prizeDoor);
   }
 
 }
@@ -52,6 +51,13 @@ void drawThings() {
     text("Click on any door to try again",300,670);
   }
   
+  textSize(20);
+  text("Auto run toggle:",855,230);
+  textSize(12);
+  text("Auto run delay:",855,250);
+  textSize(10);
+  text("(slide left and right to change value)", 855, 260);
+  
   
 }
 
@@ -82,4 +88,40 @@ void restartGame(){
    cp5.getController("door1").setImage(closedDoor);
    cp5.getController("door2").setImage(closedDoor);
    choosingStage = 0;
+}
+
+
+void autoRun(int delayTime){
+  delay(delayTime);
+  if(choosingStage == 1){
+    System.out.println(1);
+    int rand = (int) (Math.random() * 3);
+    if(rand == 0){
+      door0();
+    }else if(rand == 1){
+      door1();
+    }else{
+      door2();
+    }
+   return;
+  }if(choosingStage == 2){
+    System.out.println(2);
+    int rand;
+    rand = (int) (Math.random() * 3);
+    while(rand == hintDoor){
+      rand = (int) (Math.random() * 3);
+    }
+    if(rand == 0){
+      door0();
+    }else if(rand == 1){
+      door1();
+    }else{
+      door2();
+    }
+   return;
+  }if(choosingStage == 3){
+    door1();
+    return;
+  }
+  
 }

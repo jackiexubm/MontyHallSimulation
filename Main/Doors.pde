@@ -22,6 +22,19 @@ void setupDoor2() {
     ;
 }
 
+void setupAutoRun(){
+  cp5.addToggle("autoRunToggle")
+    .setPosition(1020,215)
+    ;
+    
+  cp5.addSlider("autoRunDelay")
+  .setRange(0,1000)
+  .setValue(10)
+  .setPosition(960,242)
+  ;
+  
+}
+
 void door0() {
   if (choosingStage == 1) {
     chosenDoor = 0;

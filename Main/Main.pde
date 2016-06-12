@@ -42,6 +42,7 @@ void setup() {
   setupDoor0();
   setupDoor1();
   setupDoor2();
+  setupAutoRun();
 }
 
 void draw() {
@@ -50,4 +51,7 @@ void draw() {
   runSimulator();
   drawThings();
   gameStats();
+  if(cp5.get(Toggle.class, "autoRunToggle").getBooleanValue()){
+    autoRun((int) cp5.getController("autoRunDelay").getValue());
+  }
 }
