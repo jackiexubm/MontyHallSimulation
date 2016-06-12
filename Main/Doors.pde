@@ -56,6 +56,8 @@ void door0() {
     }
     choosingStage++;
     return;
+  } else if (choosingStage == 3) {
+    restartGame();
   }
 }
 
@@ -93,6 +95,8 @@ void door1() {
     }
     choosingStage++;
     return;
+  } else if (choosingStage == 3) {
+    restartGame();
   }
 }
 
@@ -130,5 +134,7 @@ void door2() {
     }
     choosingStage++;
     return;
+  } else if (choosingStage == 3) {
+    restartGame();
   }
 }

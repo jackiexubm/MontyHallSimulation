@@ -20,9 +20,8 @@ int gamesSwitched;
 int gamesSwitchedAndWon;
 
 void setup() {
-  size(1000, 700);
+  size(1100, 700);
   fill(0);
-  textSize(20);
   closedDoor = loadImage("closedDoor.png");
   openDoor = loadImage("openDoor.png");
   money = loadImage("money.png");
@@ -50,4 +49,5 @@ void draw() {
   background(256, 256, 256);
   runSimulator();
   drawThings();
+  gameStats();
 }
