@@ -6,6 +6,7 @@ void runSimulator() {
   }
 
   if (choosingStage == 2) {
+    
   }
 }
 
@@ -39,11 +40,10 @@ void drawThings() {
       text("Your Choice", 650, 680);
       text("STAY...", 670, 30);
     }
-    System.out.println(otherDoor());
     if (otherDoor() == 0) {
       text("OR SWITCH...", 90, 30);
     } else if (otherDoor() == 1) {
-      text("OR SWITCH...", 390, 30);
+      text("OR SWITCH...", 370, 30);
     } else if (otherDoor() == 2) {
       text("OR SWITCH...", 650, 30);
     }

@@ -23,10 +23,8 @@ void setupDoor2() {
 }
 
 void door0() {
-
   if (choosingStage == 1) {
     chosenDoor = 0;
-    choosingStage ++;
     if (chosenDoor == prizeDoor) {
       hintDoor = (int) (Math.random() * 2) + 1;
     } else {
@@ -38,14 +36,32 @@ void door0() {
     }
     String toBeOpened = "door" + hintDoor;
     cp5.getController(toBeOpened).setImage(openDoor);
+    choosingStage ++;  
+    return;
+  } else if (choosingStage == 2) {
+    if (hintDoor == 0) {
+      return;
+    } else 
+    cp5.getController("door0").setImage(openDoor);
+    if (chosenDoor == 0) {
+      gamesStayed ++;
+      if (prizeDoor == 0) {
+        gamesStayedAndWon ++;
+      }
+    } else {
+      gamesSwitched ++;
+      if (prizeDoor == otherDoor()) {
+        gamesSwitchedAndWon ++;
+      }
+    }
+    choosingStage++;
+    return;
   }
 }
 
 void door1() {
-  //cp5.getController("door1").setImage(openDoor);
   if (choosingStage == 1) {
     chosenDoor = 1;
-    choosingStage ++;
     if (chosenDoor == prizeDoor) {
       hintDoor = (int) (Math.random() * 2) * 2;
     } else {
@@ -57,14 +73,32 @@ void door1() {
     }
     String toBeOpened = "door" + hintDoor;
     cp5.getController(toBeOpened).setImage(openDoor);
+    choosingStage ++;
+    return;
+  } else if (choosingStage == 2) {
+    if (hintDoor == 1) {
+      return;
+    }
+    cp5.getController("door1").setImage(openDoor);
+    if (chosenDoor == 1) {
+      gamesStayed ++;
+      if (prizeDoor == 1) {
+        gamesStayedAndWon ++;
+      }
+    } else {
+      gamesSwitched ++;
+      if (prizeDoor == otherDoor()) {
+        gamesSwitchedAndWon ++;
+      }
+    }
+    choosingStage++;
+    return;
   }
 }
 
 void door2() {
-  //cp5.getController("door2").setImage(openDoor);
   if (choosingStage == 1) {
     chosenDoor = 2;
-    choosingStage ++;
     if (chosenDoor == prizeDoor) {
       hintDoor = (int) (Math.random() * 2);
     } else {
@@ -76,5 +110,25 @@ void door2() {
     }
     String toBeOpened = "door" + hintDoor;
     cp5.getController(toBeOpened).setImage(openDoor);
+    choosingStage ++;
+    return;
+  } else if (choosingStage == 2) {
+    if (hintDoor == 2) {
+      return;
+    }
+    cp5.getController("door2").setImage(openDoor);
+    if (chosenDoor == 2) {
+      gamesStayed ++;
+      if (prizeDoor == 2) {
+        gamesStayedAndWon ++;
+      }
+    } else {
+      gamesSwitched ++;
+      if (prizeDoor == otherDoor()) {
+        gamesSwitchedAndWon ++;
+      }
+    }
+    choosingStage++;
+    return;
   }
 }
