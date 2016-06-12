@@ -3,7 +3,6 @@ void runSimulator() {
     prizeDoor = (int) (Math.random() * 3);
     choosingStage ++;
   }
-
 }
 
 void drawThings() {
@@ -46,82 +45,80 @@ void drawThings() {
       text("OR SWITCH...", 650, 30);
     }
   }
-  
-  if(choosingStage == 3){
-    text("Click on any door to try again",300,670);
+
+  if (choosingStage == 3) {
+    text("Click on any door to try again", 300, 670);
   }
-  
+
   textSize(20);
-  text("Auto run toggle:",855,230);
+  text("Auto run toggle:", 855, 230);
   textSize(12);
-  text("Auto run delay:",855,250);
+  text("Auto run delay:", 855, 250);
   textSize(10);
   text("(slide left and right to change value)", 855, 260);
-  
-  
 }
 
 
-void gameStats(){
-  fill(256,256,256);
-  rect(845,45,237,130,10);
+void gameStats() {
+  fill(256, 256, 256);
+  rect(845, 45, 237, 130, 10);
   fill(0);
   textSize(15);
-  
-  text("Games stayed: " + gamesStayed,932,65);
-  text("Games stayed and won: " + gamesStayedAndWon,865,85);
-  text("Percent won on stay: ",887,105);
-  if(gamesStayed > 0){
-    text((int)((double) gamesStayedAndWon / (double) gamesStayed * 100),1042,105);
+
+  text("Games stayed: " + gamesStayed, 932, 65);
+  text("Games stayed and won: " + gamesStayedAndWon, 865, 85);
+  text("Percent won on stay: ", 887, 105);
+  if (gamesStayed > 0) {
+    text((int)((double) gamesStayedAndWon / (double) gamesStayed * 100), 1042, 105);
   }
-  text("Games switched: " + gamesSwitched,915,125);
-  text("Games switched and won: " + gamesSwitchedAndWon,849,145);
-  text("Percent won on switch: ",870,165);
-  if(gamesSwitched > 0){
-    text((int)((double) gamesSwitchedAndWon / (double) gamesSwitched * 100),1042,165);
+  text("Games switched: " + gamesSwitched, 915, 125);
+  text("Games switched and won: " + gamesSwitchedAndWon, 849, 145);
+  text("Percent won on switch: ", 870, 165);
+  if (gamesSwitched > 0) {
+    text((int)((double) gamesSwitchedAndWon / (double) gamesSwitched * 100), 1042, 165);
   }
-  
 }
 
-void restartGame(){
-   cp5.getController("door0").setImage(closedDoor);
-   cp5.getController("door1").setImage(closedDoor);
-   cp5.getController("door2").setImage(closedDoor);
-   choosingStage = 0;
+void restartGame() {
+  cp5.getController("door0").setImage(closedDoor);
+  cp5.getController("door1").setImage(closedDoor);
+  cp5.getController("door2").setImage(closedDoor);
+  choosingStage = 0;
 }
 
 
-void autoRun(int delayTime){
+void autoRun(int delayTime) {
   delay(delayTime);
-  if(choosingStage == 1){
+  if (choosingStage == 1) {
     System.out.println(1);
     int rand = (int) (Math.random() * 3);
-    if(rand == 0){
+    if (rand == 0) {
       door0();
-    }else if(rand == 1){
+    } else if (rand == 1) {
       door1();
-    }else{
+    } else {
       door2();
     }
-   return;
-  }if(choosingStage == 2){
+    return;
+  }
+  if (choosingStage == 2) {
     System.out.println(2);
     int rand;
     rand = (int) (Math.random() * 3);
-    while(rand == hintDoor){
+    while (rand == hintDoor) {
       rand = (int) (Math.random() * 3);
     }
-    if(rand == 0){
+    if (rand == 0) {
       door0();
-    }else if(rand == 1){
+    } else if (rand == 1) {
       door1();
-    }else{
+    } else {
       door2();
     }
-   return;
-  }if(choosingStage == 3){
+    return;
+  }
+  if (choosingStage == 3) {
     door1();
     return;
   }
-  
 }

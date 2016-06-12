@@ -22,17 +22,16 @@ void setupDoor2() {
     ;
 }
 
-void setupAutoRun(){
+void setupAutoRun() {
   cp5.addToggle("autoRunToggle")
-    .setPosition(1020,215)
+    .setPosition(1020, 215)
     ;
-    
+
   cp5.addSlider("autoRunDelay")
-  .setRange(0,1000)
-  .setValue(10)
-  .setPosition(960,242)
-  ;
-  
+    .setRange(0, 500)
+    .setValue(0)
+    .setPosition(960, 242)
+    ;
 }
 
 void door0() {

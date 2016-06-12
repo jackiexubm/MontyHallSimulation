@@ -51,7 +51,7 @@ void draw() {
   runSimulator();
   drawThings();
   gameStats();
-  if(cp5.get(Toggle.class, "autoRunToggle").getBooleanValue()){
+  if (cp5.get(Toggle.class, "autoRunToggle").getBooleanValue()) {
     autoRun((int) cp5.getController("autoRunDelay").getValue());
   }
 }
